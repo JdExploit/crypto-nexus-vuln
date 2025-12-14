@@ -1620,4 +1620,280 @@ footer p[style*="opacity"] {
     color: #ced4da; /* Texto más claro para la nota pequeña */
 }
 
+/*
+ * Estilo UX Designer Expert (Inspirado en BBVA/Banca Moderna)
+ * Paleta: Azul (#007AFF - Azul Primario) y Blanco/Grises.
+ */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6; /* Fondo muy claro y suave */
+    color: #333333; /* Texto principal oscuro */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* --- Barra de Navegación (NAV) --- */
+
+nav {
+    background-color: #ffffff; /* Fondo blanco para la barra superior */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
+    border-bottom: 3px solid #007AFF; /* Línea de color primario para destacar */
+}
+
+nav h1 {
+    margin: 0;
+    font-weight: 700;
+    color: #007AFF; /* Azul primario para el logo */
+    font-size: 1.5rem;
+}
+
+nav div span, nav div a {
+    color: #333333 !important; /* Texto oscuro para los enlaces */
+    text-decoration: none;
+    padding: 8px 12px;
+    margin-left: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+nav div a:hover {
+    background-color: #e9ecef; /* Resaltado suave al pasar el ratón */
+}
+
+/* Estilo para el modo ADMIN */
+nav div span {
+    color: #dc3545 !important; /* Rojo/Naranja de advertencia o estado activo */
+    font-weight: bold;
+}
+
+/* --- Panel Principal (ADMIN-PANEL) --- */
+
+.admin-panel {
+    /* Mantenemos el nombre de la clase pero cambiamos radicalmente el estilo */
+    background: #007AFF; /* Azul corporativo sólido como fondo del encabezado */
+    color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.admin-panel h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+/* --- Contenedores de Funcionalidad (CARD) --- */
+
+.card, .system-commands, .danger-zone {
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra muy ligera */
+    border: 1px solid #e0e0e0; /* Borde suave */
+}
+
+.card h3, .system-commands h3, .danger-zone h3 {
+    color: #333333; /* Título oscuro */
+    margin-top: 0;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+/* --- Estilo Específico: System Commands (La Terminal) --- */
+
+.system-commands {
+    /* Mantener un aspecto de terminal para esta sección, pero limpio */
+    background-color: #212529; /* Fondo negro de consola */
+    color: #20c997; /* Verde cian para el texto de la consola */
+    font-family: 'Consolas', 'Courier New', monospace;
+    border: 1px solid #007AFF; /* Borde que marca la sección como importante/técnica */
+}
+
+.system-commands h3 {
+    color: #f0f0f0; /* Título blanco para la terminal */
+    border-bottom-color: #444444;
+}
+
+/* --- Estilo Específico: Danger Zone (Base de Datos) --- */
+
+.danger-zone {
+    /* Estilo de advertencia muy claro, no solo rojo sólido */
+    background-color: #fff3cd; /* Fondo amarillo muy claro */
+    color: #856404; /* Texto marrón oscuro */
+    border: 1px solid #ffeeba;
+    border-left: 5px solid #dc3545; /* Línea de peligro roja */
+}
+
+.danger-zone h3 {
+    color: #dc3545; /* Título rojo */
+}
+
+.danger-zone p small {
+    color: #856404;
+}
+
+/* --- Inputs y Botones (Uniformidad) --- */
+
+input[type="text"] {
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    color: #495057;
+    padding: 0.75rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+input[type="text"]:focus {
+    border-color: #007AFF;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra de foco azul suave */
+}
+
+button[type="submit"] {
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+/* Botón principal azul (default para File Browser / SSRF) */
+.card button[type="submit"] {
+    background-color: #007AFF;
+}
+
+.card button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Botón de Comandos del Sistema (terminal verde) */
+.system-commands button[type="submit"] {
+    background-color: #20c997 !important;
+}
+
+.system-commands button[type="submit"]:hover {
+    background-color: #17a27b !important;
+}
+
+/* Botón de Danger Zone (rojo) */
+.danger-zone button[type="submit"] {
+    background-color: #dc3545;
+}
+
+.danger-zone button[type="submit"]:hover {
+    background-color: #c82333;
+}
+
+
+/* --- Listas de Comandos/Enlaces --- */
+.system-commands ul, .card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.system-commands ul li a {
+    color: #20c997; /* El texto de la terminal sigue siendo verde */
+    text-decoration: none;
+    background-color: #333333;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.card ul li a {
+    color: #007AFF; /* Enlaces azules */
+    text-decoration: none;
+}
+
+.card ul li a:hover {
+    text-decoration: underline;
+}
+
+/* --- Tabla de Usuarios (Limpieza y Espaciado) --- */
+
+table {
+    width: 100%;
+    border-collapse: separate; /* Usar 'separate' y 'border-spacing' para mejorar la estética */
+    border-spacing: 0 5px; /* Espacio entre filas */
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+thead tr {
+    background-color: #f8f9fa;
+    color: #495057;
+    text-align: left;
+    font-weight: 600;
+}
+
+th {
+    padding: 12px 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+td {
+    padding: 12px 15px;
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-top: none;
+    border-bottom: 1px solid #e9ecef;
+}
+
+tbody tr:hover td {
+    background-color: #f8f9fa; /* Resaltar fila al pasar el ratón */
+}
+
+/* Borde redondeado para la primera y última fila/celda */
+tbody tr:first-child td:first-child { border-top-left-radius: 4px; }
+tbody tr:first-child td:last-child { border-top-right-radius: 4px; }
+tbody tr:last-child td:first-child { border-bottom-left-radius: 4px; }
+tbody tr:last-child td:last-child { border-bottom-right-radius: 4px; }
+
+tbody td:last-child a {
+    color: #007AFF;
+    text-decoration: none;
+    margin: 0 5px;
+    font-weight: 500;
+}
+
+tbody td:last-child a:hover {
+    text-decoration: underline;
+}
+
+/* --- Backdoor (Oculto) --- */
+#backdoor {
+    background-color: #212529; /* Sigue siendo oscuro */
+    border: 2px dashed #007AFF;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+}
+
+#backdoor h3 {
+    color: #ffffff;
+}
+
+#backdoor p {
+    color: #20c997;
+    font-family: monospace;
+}
 
