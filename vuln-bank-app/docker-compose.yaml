@@ -2,23 +2,19 @@ version: '3.8'
 
 services:
   vuln-bank:
-    # El contexto de la construcción sigue siendo el directorio raíz (donde está el Dockerfile)
     build: .
     
     ports:
       - "8080:8080"
     
-    # Configuración de volúmenes para persistencia y desarrollo
     volumes:
-      # 1. Mapeo del código: Mapea la carpeta 'app' de tu host al '/app' del contenedor.
-      # Esto permite que Docker encuentre app.py y las carpetas static/templates.
+      # 1. Mapeo del código: Mapea la carpeta 'app' de tu host al '/app' del contenedor
       - ./app:/app 
       
-      # 2. Persistencia de la Base de Datos (DB se crea en el root del contenedor /app)
-      - db_data:/app/app.db
+      # 2. Persistencia de la Base de Datos (Va al subdirectorio /app/data para permisos)
+      - db_data:/app/data 
       
-      # 3. Persistencia de Archivos y Comentarios (XSS, LFI)
-      - file_data:/app/comments.txt
+      # 3. Persistencia de Archivos y Uploads
       - file_data:/app/uploads
       
     environment:
@@ -28,7 +24,6 @@ services:
 
     restart: always 
     
-    # Comando de ejecución: Lanza app.py que ahora está en /app/app.py
     command: python app.py
 
 # Volúmenes definidos para la persistencia de datos
